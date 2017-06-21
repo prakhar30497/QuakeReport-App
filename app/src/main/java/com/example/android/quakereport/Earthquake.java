@@ -1,9 +1,5 @@
 package com.example.android.quakereport;
 
-/**
- * Created by Prakhar on 16-Jun-17.
- */
-
 public class Earthquake {
     private Double mMagnitude;
     private String mLocation;
