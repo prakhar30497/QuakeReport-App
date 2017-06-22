@@ -37,6 +37,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.net.URI;
 import java.util.ArrayList;
@@ -124,6 +125,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
 
         if(earthquakes!=null && !earthquakes.isEmpty())
             mAdapter.addAll(earthquakes);
+        else{
+            mEmptyStateTextView.setText("No Earthquakes Found.");
+        }
     }
 
     @Override
@@ -144,6 +148,9 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderManag
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
             return true;
+        }
+        else if (id == R.id.action_refresh){
+            Toast.makeText(getApplicationContext(), "Refresh button pressed", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
